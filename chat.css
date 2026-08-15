@@ -1,0 +1,49 @@
+#chat {
+    position: absolute;
+
+    right: 15px;
+    top: 15px;
+
+    width: 300px;
+    max-width: calc(100% - 30px);
+
+    padding: 10px;
+
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+
+    z-index: 10;
+}
+
+#messages {
+    height: 150px;
+    overflow-y: auto;
+    margin-bottom: 8px;
+
+    color: white;
+    font-size: 14px;
+}
+
+#chatForm {
+    display: flex;
+    gap: 5px;
+}
+
+#chatInput {
+    flex: 1;
+    min-width: 0;
+
+    padding: 8px;
+
+    border: none;
+    border-radius: 5px;
+}
+
+#chatForm button {
+    padding: 8px 12px;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+}

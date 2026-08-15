@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    font-family: Arial, sans-serif;
+    background: #111;
+}
+
+body {
+    position: fixed;
+    inset: 0;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+#debug {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    width: 320px;
+    max-width: calc(100% - 20px);
+    max-height: 180px;
+
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    z-index: 9999;
+
+    font-family: monospace;
+    font-size: 12px;
+
+    overflow: hidden;
+}
+
+#debugTitle {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#debugLog {
+    max-height: 140px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}

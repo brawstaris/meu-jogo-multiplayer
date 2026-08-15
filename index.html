@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>2D Multiplayer</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/lobby.css">
+</head>
+
+<body>
+
+    <main id="game">
+        
+        <div id="zoomControls">
+
+    <button
+        id="zoomIn"
+        class="zoomButton"
+    >
+        +
+    </button>
+
+    <button
+        id="zoomOut"
+        class="zoomButton"
+    >
+        −
+    </button>
+            
+            <button id="interactButton">
+                <div id="interactionMessage">
+
+    <div id="interactionBox">
+
+        <p id="interactionText">
+            Você encontrou algo.
+        </p>
+
+        <button id="closeInteraction">
+            OK
+        </button>
+
+    </div>
+
+</div>
+    INTERAGIR
+</button>
+
+</div>
+        
+        <div id="lobbyScreen">
+
+    <div id="lobbyBox">
+
+        <h1>LOBBY</h1>
+
+        <button
+            id="createRoomButton"
+            class="lobbyButton"
+        >
+            CRIAR SALA
+        </button>
+
+        <h2>Salas disponíveis</h2>
+
+        <div id="roomsList">
+        </div>
+
+    </div>
+
+</div>
+        
+        <div id="loginScreen">
+
+    <div id="loginBox">
+
+        <h1>MEU JOGO</h1>
+
+        <p>Digite seu nome</p>
+
+        <input
+            id="nicknameInput"
+            type="text"
+            maxlength="16"
+            placeholder="Seu nome..."
+            autocomplete="off"
+        >
+
+        <button id="playButton">
+            JOGAR
+        </button>
+
+    </div>
+
+</div>
+
+        <canvas id="gameCanvas"></canvas>
+        
+        <div id="joystick">
+    <div id="joystickStick"></div>
+</div>
+
+        <section id="chat">
+            <div id="messages"></div>
+
+            <form id="chatForm">
+                <input
+                    id="chatInput"
+                    type="text"
+                    placeholder="Digite uma mensagem..."
+                    autocomplete="off"
+                >
+
+                <button type="submit">
+                    Enviar
+                </button>
+            </form>
+        </section>
+
+    </main>
+    
+    <div id="debug">
+    <div id="debugTitle">DEBUG</div>
+    <div id="debugLog"></div>
+</div>
+    
+    <div id="gameHUD">
+
+    <div id="playerInfo">
+
+        <div id="playerName">
+            👤 Jogador
+        </div>
+
+        <div id="roomInfo">
+            🏠 Sala: -
+        </div>
+
+    </div>
+
+
+    <div id="onlineInfo">
+        🟢 ONLINE
+    </div>
+
+</div>
+   
+    <script>
+function debugLog(message) {
+
+    const log =
+        document.getElementById("debugLog");
+
+    log.textContent += message + "\n";
+
+    log.scrollTop = log.scrollHeight;
+
+    console.log(message);
+}
+
+window.addEventListener("error", (event) => {
+
+    debugLog(
+        "ERRO: " +
+        event.message +
+        " | linha: " +
+        event.lineno
+    );
+});
+
+window.addEventListener(
+    "unhandledrejection",
+    (event) => {
+
+        debugLog(
+            "PROMISE: " +
+            event.reason
+        );
+    }
+);
+
+debugLog("Sistema de debug iniciado.");
+</script>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+<script src="js/player.js"></script>
+<script src="js/controls.js"></script>
+<script src="js/map.js"></script>
+<script src="js/game.js"></script>
+<script src="js/main.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/lobby.js"></script>
+</body>
+
+</html>
